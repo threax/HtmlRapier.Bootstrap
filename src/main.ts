@@ -1,6 +1,6 @@
-import * as modal from 'hr.bootstrap.modal';
-import * as dropdown from 'hr.bootstrap.dropdown';
-import * as tab from 'hr.bootstrap.tab';
+import * as modal from './modal';
+import * as dropdown from './dropdown';
+import * as tab from './tab';
 
 modal.activate();
 dropdown.activate();

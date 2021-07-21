@@ -1,5 +1,4 @@
-import * as toggles from 'hr.toggles';
-import * as events from 'hr.eventdispatcher';
+import * as toggles from 'htmlrapier/src/toggles';
 
 declare var $;
 
