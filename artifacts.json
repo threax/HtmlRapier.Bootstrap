@@ -12,5 +12,12 @@
     "copy": [
       "../bootstrap/dist/js/bootstrap.min.js"
     ]
+  },
+  {
+    "pathBase": "..",
+    "outDir": "lib",
+    "copy": [
+      "../@popperjs/core/dist/umd/popper.min.js"
+    ]
   }
 ]

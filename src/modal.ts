@@ -1,14 +1,5 @@
 import * as toggles from 'htmlrapier/src/toggles';
-
-declare var $; //Using global jquery
-
-//Scrollbar fix, keeps scrollbars at correct length with multiple modals
-//Since this is on the document, only needed once, so register here
-//Works in bootstrap 3.3.7.
-//Thanks to A1rPun at https://stackoverflow.com/questions/19305821/multiple-modals-overlay
-$(document).on('hidden.bs.modal', '.modal', function () {
-    $('.modal:visible').length && $(document.body).addClass('modal-open');
-});
+/// <reference types="bootstrap" />
 
 class LastClickTargetManager {
     private lastOnClickTarget: any = null;
@@ -59,20 +50,15 @@ class ModalStates extends toggles.ToggleStates {
     private modal: any;
     private lastOnClickBeforeOpen: any;
 
-    constructor(element, next: toggles.IToggleStates) {
+    constructor(element: Element, next: toggles.IToggleStates) {
         super(next);
-        this.modal = $(element);
-        var theModal = this.modal.modal({
-            show: false
-        });
+        this.modal = new bootstrap.Modal(element);
 
-        var thisShim = this;
-
-        this.modal.on('show.bs.modal', (e) => {
+        element.addEventListener('show.bs.modal', (e) => {
             this.lastOnClickBeforeOpen = lastClickTracker.getLast();
             this.fireStateChange('on');
         });
-        this.modal.on('hide.bs.modal', (e) => {
+        element.addEventListener('hide.bs.modal', (e) => {
             this.fireStateChange('off');
         });
         //Only listen for tracking events if the modal is setup to do it.
@@ -88,10 +74,10 @@ class ModalStates extends toggles.ToggleStates {
     public activateState(state): boolean {
         switch (state) {
             case 'on':
-                this.modal.modal('show');
+                this.modal.show();
                 break;
             case 'off':
-                this.modal.modal('hide');
+                this.modal.hide();
                 break;
         }
         return false;

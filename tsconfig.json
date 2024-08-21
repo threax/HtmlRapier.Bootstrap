@@ -11,6 +11,7 @@
       "module": "ES2020",
       "baseUrl": ".",
       "moduleResolution": "node",
+      "allowUmdGlobalAccess": true,
       "lib": [
         "DOM",
         "ES2020"
