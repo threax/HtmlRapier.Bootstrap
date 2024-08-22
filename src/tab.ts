@@ -1,19 +1,18 @@
 import * as toggles from 'htmlrapier/src/toggles';
-
-declare var $; //Using global jquery
+/// <reference types="bootstrap" />
 
 //Toggle Plugin
 class TabStates extends toggles.ToggleStates {
-    private tab;
+    private tab: bootstrap.Tab;
 
-    constructor(element, next: toggles.IToggleStates) {
+    constructor(element: Element, next: toggles.IToggleStates) {
         super(next);
-        this.tab = $(element);
+        this.tab = new bootstrap.Tab(element);
 
-        this.tab.on('shown.bs.tab', (e) => {
+        element.addEventListener('shown.bs.tab', (e) => {
             this.fireStateChange('on');
         });
-        this.tab.on('hide.bs.tab', (e) => {
+        element.addEventListener('hide.bs.tab', (e) => {
             this.fireStateChange('off');
         });
         this.addState('on', 'on');
@@ -23,7 +22,7 @@ class TabStates extends toggles.ToggleStates {
     public activateState(state): boolean {
         switch (state) {
             case 'on':
-                this.tab.tab('show');
+                this.tab.show();
                 break;
             case 'off':
                 //Can't turn off tabs, does nothing

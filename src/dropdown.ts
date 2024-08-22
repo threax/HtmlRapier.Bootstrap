@@ -1,14 +1,13 @@
 import * as toggles from 'htmlrapier/src/toggles';
-
-declare var $;
+/// <reference types="bootstrap" />
 
 //Toggle Plugin
 class DropdownStates extends toggles.ToggleStates {
-    private drop;
+    private drop: bootstrap.Dropdown;
 
-    constructor(element, next) {
+    constructor(element: Element, next: toggles.IToggleStates) {
         super(next);
-        this.drop = $(element).dropdown();
+        this.drop = new bootstrap.Dropdown(element);
     }
 
     public activateState(state): boolean {
