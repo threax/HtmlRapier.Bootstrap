@@ -3,13 +3,6 @@
     "pathBase": "..",
     "outDir": "lib",
     "copy": [
-      "../jquery/dist/jquery.min.js"
-    ]
-  },
-  {
-    "pathBase": "..",
-    "outDir": "lib",
-    "copy": [
       "../bootstrap/dist/js/bootstrap.min.js"
     ]
   },
