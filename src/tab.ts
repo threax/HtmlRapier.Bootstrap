@@ -1,5 +1,5 @@
 import * as toggles from 'htmlrapier/src/toggles';
-/// <reference types="bootstrap" />
+import * as bootstrap from './bootstrap';
 
 //Toggle Plugin
 class TabStates extends toggles.ToggleStates {

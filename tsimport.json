@@ -1,5 +1,6 @@
 {
   "include": [
-    "src\\**\\*.ts"
+    "src\\**\\*.ts",
+    "..\\bootstrap\\js\\src\\**\\*.js"
   ]
 }
